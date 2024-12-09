@@ -1,0 +1,50 @@
+---
+title: "ggplot_func_markdown_report"
+author: "Priyanka"
+date: "2024-12-08"
+output: html_document
+---
+
+## Setting up my Environment 
+Notes: Setting up my environment by loading the 'tidyverse' and 'palmerpenguins' packages.
+
+```{r loading packages}
+library(tidyverse)
+library(ggplot2) 
+library(palmerpenguins)
+```
+
+####Notes: Now we first view, analyse and summarize our code.
+
+```{r See Data}
+data(penguins)
+View(penguins)
+head(penguins)
+glimpse(penguins)
+```
+
+####Notes: Create Visualizations:
+
+```{r ggplot for penguin data visualization}
+ggplot(data = penguins)
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +  geom_point()
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = bill_length_mm, y = bill_depth_mm))
+```
+
+####Notes: Subset Visuals
+
+```{r}
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  facet_wrap(~species)
+```
+
+```{r}
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  facet_grid(sex~species)
+```
+
