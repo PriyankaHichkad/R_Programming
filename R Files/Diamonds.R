@@ -1,0 +1,10 @@
+install.packages("tidyverse")
+library(ggplot2)
+data("diamonds")
+View(diamonds)
+head(diamonds)
+str(diamonds)
+colnames(diamonds)
+
+library(tidyverse)
+mutate(diamonds, carat_2=carat*100)
